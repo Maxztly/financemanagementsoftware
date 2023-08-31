@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from profit_calculator import ProfitCalculator
+from calculator.profit_calculator import ProfitCalculator
 from calculator.savings_calculator import SavingsCalculator
 
 def toggle_frame(event):
