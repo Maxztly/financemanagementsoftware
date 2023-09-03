@@ -56,4 +56,3 @@ calculator_type_combo.bind("<<ComboboxSelected>>", toggle_frame)
 
 # Start the GUI
 root.mainloop()
-
