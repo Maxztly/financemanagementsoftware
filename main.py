@@ -6,6 +6,7 @@ from calculator.invest_calculator import InvestmentCalculator
 from calculator.loan_calculator import LoanCalculator
 from calculator.rental_yield_calculator import RentalYieldCalculator
 from calculator.inflation_calculator import InflationCalculator
+from calculator.real_return_calculator import RealReturnCalculator
 
 def toggle_frame(event):
     selected_calculator = calculator_type_var.get()
@@ -15,6 +16,7 @@ def toggle_frame(event):
         loan_frame.frame.grid_remove()
         rental_yield_frame.frame.grid_remove()
         inflation_frame.frame.grid_remove()
+        real_return_frame.frame.grid_remove()
         savings_frame.frame.grid()
     elif selected_calculator == "Gewinn Rechner":
         savings_frame.frame.grid_remove()
@@ -22,6 +24,7 @@ def toggle_frame(event):
         loan_frame.frame.grid_remove()
         rental_yield_frame.frame.grid_remove()
         inflation_frame.frame.grid_remove()
+        real_return_frame.frame.grid_remove()
         profit_frame.frame.grid()
     elif selected_calculator == "Investitionsrechner":
         profit_frame.frame.grid_remove()
@@ -29,6 +32,7 @@ def toggle_frame(event):
         loan_frame.frame.grid_remove()
         rental_yield_frame.frame.grid_remove()
         inflation_frame.frame.grid_remove()
+        real_return_frame.frame.grid_remove()
         investment_frame.frame.grid()
     elif selected_calculator == "Kreditrechner":
         profit_frame.frame.grid_remove()
@@ -37,6 +41,7 @@ def toggle_frame(event):
         loan_frame.frame.grid_remove()
         rental_yield_frame.frame.grid_remove()
         inflation_frame.frame.grid_remove()
+        real_return_frame.frame.grid_remove()
         loan_frame.frame.grid()
     elif selected_calculator == "Mietrendite-Rechner":
         profit_frame.frame.grid_remove()
@@ -44,6 +49,7 @@ def toggle_frame(event):
         investment_frame.frame.grid_remove()
         loan_frame.frame.grid_remove()
         inflation_frame.frame.grid_remove()
+        real_return_frame.frame.grid_remove()
         rental_yield_frame.frame.grid()
     elif selected_calculator == "Inflationsrechner":
         profit_frame.frame.grid_remove()
@@ -51,7 +57,16 @@ def toggle_frame(event):
         investment_frame.frame.grid_remove()
         loan_frame.frame.grid_remove()
         rental_yield_frame.frame.grid_remove()
+        real_return_frame.frame.grid_remove()
         inflation_frame.frame.grid()
+    elif selected_calculator == "Realrendite-Rechner":
+        profit_frame.frame.grid_remove()
+        savings_frame.frame.grid_remove()
+        investment_frame.frame.grid_remove()
+        loan_frame.frame.grid_remove()
+        rental_yield_frame.frame.grid_remove()
+        inflation_frame.frame.grid_remove()
+        real_return_frame.frame.grid()
 
 # GUI Setup
 root = tk.Tk()
@@ -78,7 +93,7 @@ calculator_type_label.grid(row=0, column=0, sticky="w")
 
 calculator_type_var = tk.StringVar()
 calculator_type_combo = ttk.Combobox(main_frame, textvariable=calculator_type_var,
-                                    values=["Gewinn Rechner", "Sparziel Rechner", "Investitionsrechner", "Kreditrechner", "Mietrendite-Rechner", "Inflationsrechner"])
+                                    values=["Gewinn Rechner", "Sparziel Rechner", "Investitionsrechner", "Kreditrechner", "Mietrendite-Rechner", "Inflationsrechner", "Realrendite-Rechner"])
 calculator_type_combo.grid(row=0, column=1, padx=10, pady=5)
 
 # Create instances of the calculator classes
@@ -88,6 +103,7 @@ investment_frame = InvestmentCalculator(main_frame)
 loan_frame = LoanCalculator(main_frame)
 rental_yield_frame = RentalYieldCalculator(main_frame)
 inflation_frame = InflationCalculator(main_frame)
+real_return_frame = RealReturnCalculator(main_frame)
 
 # Bind the function to the combo box selection event
 calculator_type_combo.bind("<<ComboboxSelected>>", toggle_frame)
